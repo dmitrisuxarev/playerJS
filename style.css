@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+.player{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+.player-wrapper{
+position: absolute;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-end;
+    width: 50vw;
+    height: 75vh;
+    border: 1px solid red;
+}
+/* .player-wrapper:hover .cover{
+  top: -10vh;
+  width: 20vh;
+  height: 20vh;
+}
+.player-wrapper:hover .song-text{
+    height: 50vh;
+  } */
+  /* .player-wrapper:hover .cover{
+    width: 35vh;
+    height: 35vh;
+  } */
+.panel{
+    width: 40vw;
+    height: 10vh;
+    border-radius: 5px;
+    background-color: aquamarine;
+    transition: .2s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 2vh 1fr;
+}
+.audio-slider{
+    grid-column: span 3;
+    grid-row: 1 2;
+    border: 1px solid red;
+    height: 2vh;
+}
+.audio-slider input{
+    width: 100%;
+}
+.audio-option-left,.audio-option-right{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+.audio-controll{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+.cover{
+    position: absolute;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 35vh;
+    height: 35vh;
+    background-color: brown;
+    border-radius: 5px;
+   transform:translate(-50%,0);
+   top: 5vh;
+   left: 50%;
+}
+.cover-play{
+    width: 40vh;
+    height: 40vh;
+}
+.cover-up{
+    top: -10vh;
+  width: 20vh;
+  height: 20vh;
+}
+.cover-up-stop{
+    top: -10vh;
+    width: 17vh;
+    height: 17vh; 
+}
+.song-text{
+    width: 40vw;
+    height: 0vh;
+    background-color: chartreuse;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    border-radius: 5px;
+    margin-bottom: 2vh;
+}
+.song-text-open{
+    height: 50vh;
+}
+.player-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    background-image: url("https://ns328286.ip-37-187-113.eu/ew/wallpapers/800x480/27317_800x480.jpg");
+    background-size: cover;
+    filter: blur(3px);
+    width: 100%;
+    height: 100%;
+}
