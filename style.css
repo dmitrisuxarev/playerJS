@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 svg{
-    width: 50px;
-    height: 50px;
+    width: 2vw;
+    height: 2vw;
     margin: 5px;
     stroke: rgb(43, 43, 43);
 }
@@ -38,8 +38,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-end;
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
     background: rgba(170, 170, 170, 0.09);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
