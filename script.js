@@ -10,14 +10,14 @@ playButton.addEventListener("click",(e)=>{
         cover.classList.toggle("cover-up-stop")
     }
     else{
-       cover.classList.toggle("cover-play") //вкл\выкл проигрывание
+       cover.classList.toggle("cover-stop") //вкл\выкл проигрывание
     }
     
 })
 textButton.addEventListener("click",()=>{
     if(cover.classList.contains("cover-up-stop")){ //текст отключаем но оставляем состояние играть\пауза
         cover.classList.toggle("cover-up-stop")
-        cover.classList.toggle("cover-play") 
+        cover.classList.toggle("cover-stop") 
     }
     playerWindow.classList.toggle("player-window-open") //открыть закрыть текст
     cover.classList.toggle("cover-up")

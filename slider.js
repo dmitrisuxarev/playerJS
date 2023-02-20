@@ -1,72 +1,7 @@
+
 let slider
 document.addEventListener("DOMContentLoaded", () => {
-    // let numInput = document.querySelector(".slider-change-value");
-    // let customSlider = document.querySelector(".custom-slider");
-    // let sliderWith = Math.round(customSlider.getBoundingClientRect().width);
-    // let min = customSlider.dataset.min ? +customSlider.dataset.min : 0;
-    // let max = customSlider.dataset.max ? +customSlider.dataset.max : 100;
-    // let value = customSlider.dataset.value ? +customSlider.dataset.value : 0;
-    // let position = 0;
-
-
-
-
-    // let sliderBtn = document.createElement("div");
-    // sliderBtn.classList.add("slider-button")
-    // let sliderLine = document.createElement("div");
-    // sliderLine.classList.add("slider-line")
-
-    // customSlider.append(sliderBtn, sliderLine)
-
-    // function sliderMove(e) {
-    //     let direction = e.movementX;
-    //     position = position + direction;
-
-    //     if (position < sliderWith && position >= 0) {
-    //         sliderBtn.style.left = position + "px"
-    //         value = (((max - min) / sliderWith) * position) + min;
-
-    //     }
-    //     if (position >= sliderWith) {
-    //         sliderBtn.style.left = sliderWith + "px"
-    //         value = max
-    //     }
-    //     if (position <= 0) {
-    //         sliderBtn.style.left = "0px"
-    //         value = min
-    //     }
-    //     value = Math.round(value)
-    //     customSlider.dataset.value = value;
-    //     setValueToAnotherInput(numInput)
-    // }
-
-    // function setValueToAnotherInput(someInput) {
-    //     someInput.value = value;
-    // }
-
-    // function setSliderValue(value) {
-    //     if (value > max)
-    //         value = max;
-    //     if (value < min)
-    //         value = min
-    //     position = (value * sliderWith) / max
-    //     sliderBtn.style.left = position + "px"
-    // }
-    // numInput.addEventListener("change", e => {
-    //     setSliderValue(e.target.value)
-
-    // })
-    // sliderBtn.addEventListener("mousedown", e => {
-    //     e.preventDefault();
-    //     document.addEventListener("mousemove", sliderMove)
-    // });
-    // document.addEventListener("mouseup", () => {
-    //     document.removeEventListener("mousemove", sliderMove)
-    // })
 slider = new CustomeSider(".custom-slider",".slider-change-value")
-slider.initialization()
-
-
 })
 
 class CustomeSider {
@@ -78,7 +13,7 @@ class CustomeSider {
         this.max = this.slider.dataset.max ? +this.slider.dataset.max : 100;
         this.value = this.slider.dataset.value ? +this.slider.dataset.value : 0;
         this.position = 0;
-        // this.initialization()
+        this.initialization()
     }
 
     
@@ -147,6 +82,12 @@ class CustomeSider {
     });
     document.addEventListener("mouseup", () => {
         document.removeEventListener("mousemove", f)
+    })
+    this.sliderLine.addEventListener('click',e=>{
+        this.position = e.layerX;
+        this.moveElements()
+        this.value =Math.round((((this.max - this.min) / this.sliderWith) * this.position) + this.min);
+        this.setValueToAnotherInput()
     })
     }
 }
