@@ -144,31 +144,33 @@ svg.play-active {
 /* PLAYER TOP */
 .player-top {
     position: relative;
-    border: 1px solid red;
     flex: 1;
     transition: 1s;
 }
 .player-top:hover .cover{
-transform-origin: center center; 
-transform: translate(-38%,-38%) scale(0.2);
+top: 0;
+left: 0;
+width: 5vw;
+height: 5vw;
 }
 .player-top:hover .song-name{
-    transform: translate(-320%,-1480%) scale(0.8);
+    left: 15%;
+    top: 5%;
+    transform: unset;
 }
 .player-top:hover .song-text-btn{
-    transform: translate(-50%,-1480%);
+    /* transform: translate(-50%,-1480%); */
+    bottom: 90%;
 } 
 .player-top:hover .player-window{
     height: 85%;
     opacity: 1;
 }
+
 .cover {
-    border: 1px solid red;
     position: absolute;
-    transform-origin: center center;
-    transform: translate(50%,25%);
-    justify-self: center;
-    align-self: center;
+    top: 25%;
+    left: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,7 +187,11 @@ transform: translate(-38%,-38%) scale(0.2);
 
 .cover-stop{
     filter:grayscale(1);
-    transform: translate(50%,25%) scale(.8);
+    top: 30%;
+    left: 31%;
+    width: 15vw;
+    height: 15vw;
+    /* transform: translate(50%,25%) scale(.8); */
 }
 .cover-up {
     top: -5%;
@@ -204,7 +210,7 @@ transform: translate(-38%,-38%) scale(0.2);
     transform: translate(-50%,0%);
     transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1);
     height: 2vw;
-    bottom: 0;
+    bottom: 5%;
     left: 50%;
     display: flex;
     flex-direction: column;
@@ -219,6 +225,7 @@ transform: translate(-38%,-38%) scale(0.2);
 .song-text-btn{
     position: absolute;
     transform: translate(-50%,0%);
+    transition: .2s;
     height: 2vw;
     width: 2vw;
     bottom: 0;
@@ -254,11 +261,35 @@ transform: translate(-38%,-38%) scale(0.2);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 1% 0;
 }
-
+.song-text,.playlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100%;
+    border:1px solid red;
+    display: none;
+}
+.song-text::-webkit-scrollbar,.playlist::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 .current-song-string {
     color: rgb(255, 255, 255) !important;
 }
-
+.playlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100%;
+}
 .player-window-content {
     display: none;
 }
