@@ -67,7 +67,7 @@ button:active{
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: .2s;
 }
-.player-wrapper:hover{
+.player-wrapper.window-open{
     background-color: rgba(0, 0, 0, 0.377);
 
 }
@@ -147,22 +147,22 @@ svg.play-active {
     flex: 1;
     transition: 1s;
 }
-.player-top:hover .cover{
+.cover.window-open{
 top: 0;
 left: 0;
 width: 5vw;
 height: 5vw;
 }
-.player-top:hover .song-name{
+.song-name.window-open{
     left: 15%;
     top: 5%;
     transform: unset;
 }
-.player-top:hover .song-text-btn{
+.song-text-btn.window-open{
     /* transform: translate(-50%,-1480%); */
     bottom: 90%;
 } 
-.player-top:hover .player-window{
+.player-window.window-open{
     height: 85%;
     opacity: 1;
 }
@@ -178,14 +178,14 @@ height: 5vw;
     height: 20vw;
     overflow: hidden;
     border-radius: 16px;
-    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter .4s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1), filter .2s cubic-bezier(0.175, 0.885, 0.32, 1) ;
 }
 
 .cover img {
     height: 100%;
 }
 
-.cover-stop{
+.cover.stop{
     filter:grayscale(1);
     top: 30%;
     left: 31%;
@@ -230,6 +230,7 @@ height: 5vw;
     width: 2vw;
     bottom: 0;
     right: 0;
+    z-index: 10;
 }
 /* PLAYER TOP END */
 .player-window {
@@ -241,7 +242,7 @@ height: 5vw;
     width: 100%;
     height: 0%;
     opacity: 0;
-    transition: .2s linear;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1);
     overflow: hidden;
     border: none;
     padding: 2%;
@@ -262,7 +263,7 @@ height: 5vw;
     margin: 1% 0;
 }
 .song-text,.playlist{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     overflow-x: scroll;
@@ -270,8 +271,10 @@ height: 5vw;
     scrollbar-width: none;
     width: 100%;
     height: 100%;
-    border:1px solid red;
     display: none;
+}
+.song-text.open,.playlist.open{
+    display: flex;
 }
 .song-text::-webkit-scrollbar,.playlist::-webkit-scrollbar {
     width: 0;
@@ -280,16 +283,7 @@ height: 5vw;
 .current-song-string {
     color: rgb(255, 255, 255) !important;
 }
-.playlist{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    width: 100%;
-    height: 100%;
-}
+
 .player-window-content {
     display: none;
 }

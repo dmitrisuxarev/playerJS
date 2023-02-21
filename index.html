@@ -17,11 +17,15 @@
 
 <body>
     <input type="number" value="0" class="slider-change-value">
+    
+    <audio class="base-player" controls src="Noisia.mp3">
+    </audio>
+    
     <div class="wrapper">
         <div class="player">
             <div class="player-wrapper">
                 <div class="player-top">
-                    <div class="cover">
+                    <div class="cover stop">
                         <img src="https://cs13.pikabu.ru/avatars/3244/x3244226-46182721.png" alt="" srcset="">
                     </div>
                     <div class="song-name">
@@ -63,7 +67,7 @@
                         </div>
                     </div>
                     <div class="audio-option-left">
-                        <button><svg fill="#000000" width="64px" height="64px" viewBox="0 0 24 24"
+                        <button class="playlist-btn"><svg fill="#000000" width="64px" height="64px" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -136,6 +140,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="player-background"></div>
         </div>
     </div>
