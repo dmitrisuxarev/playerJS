@@ -1,5 +1,5 @@
 /* TODO:
-сделать анимации плейлиста
+подправить анимации обложки на паузе
 изменять игать\пауза
 
 */
@@ -109,7 +109,10 @@ button:active{
     grid-row: 1 2;
     height: 2vh;
 }
-
+.audio-volume{
+    border: 1px solid red;
+    width: 100%;
+}
 .audio-slider input {
     width: 100%;
 }

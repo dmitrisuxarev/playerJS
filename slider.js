@@ -1,12 +1,13 @@
 
-let slider
+
 document.addEventListener("DOMContentLoaded", () => {
-slider = new CustomeSider(".custom-slider",".slider-change-value")
+
 })
 
 class CustomeSider {
-    constructor(divClass, dependentInputFieldClass) {
-        this.dependentInputField = document.querySelector(dependentInputFieldClass);
+    constructor(divClass, dependentInputFieldClass,field) {
+        this.dependentInputField = typeof dependentInputFieldClass == 'string'?document.querySelector(dependentInputFieldClass):dependentInputFieldClass;
+        this.dependetField = field;
         this.slider = document.querySelector(divClass);
         this.sliderWith = Math.round(this.slider.getBoundingClientRect().width);
         this.min = this.slider.dataset.min ? +this.slider.dataset.min : 0;
@@ -27,7 +28,11 @@ class CustomeSider {
         this.sliderLine.append(this.sliderFullLine)
         this.slider.append(this.sliderBtn, this.sliderLine)
     }
-    
+    setRange(min,max){
+        this.max = max? max:100;
+        this.min = min? min:0;
+        console.log(min,max);
+    }
     moveElements(val){
         this.sliderBtn.style.left = val?val+"px":this.position + "px"
         this.sliderFullLine.style.width = val?val+"px":this.position + "px"
@@ -52,13 +57,14 @@ class CustomeSider {
             this.moveElements("0")
             this.value = this.min
         }
-        this.value = Math.round(this.value)
+        this.value =  this.value<=1?this.value:Math.round(this.value);
         this.slider.dataset.value = this.value;
         this.setValueToAnotherInput()
+        console.log("vol:"+this.value);
     }
     
     setValueToAnotherInput(){
-        this.dependentInputField.value = this.value;
+        this.dependentInputField[this.dependetField] = this.value;
     }
     setSliderValue(value) {
         if (value > this.max)
@@ -70,11 +76,13 @@ class CustomeSider {
     }
     initialization(){
         this.createSlider()
-    
-       this.dependentInputField.addEventListener("change", e => {
+        this.setSliderValue(this.value)
+        if(this.dependentInputField){
+this.dependentInputField.addEventListener("change", e => {
         this.setSliderValue(e.target.value)
-
     })
+        }
+       
     let f = e=>this.sliderMove(e)
     this.sliderBtn.addEventListener("mousedown", e => {
         e.preventDefault();

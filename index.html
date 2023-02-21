@@ -10,15 +10,15 @@
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="slider.css">
-    <script src="script.js"></script>
     <script src="slider.js"></script>
+    <script src="script.js"></script>
     <title>PlayerJS</title>
 </head>
 
 <body>
     <input type="number" value="0" class="slider-change-value">
     
-    <audio class="base-player" controls src="Noisia.mp3">
+    <audio class="base-player" preload="metadata" controls src="Cardi.mp3">
     </audio>
     
     <div class="wrapper">
@@ -134,8 +134,7 @@
                             </svg></button>
                     </div>
                     <div class="audio-option-right">
-                        <div class="audio-volume">
-                            <input type="range" name="" id="">
+                        <div class="audio-volume custom-slider" data-min="0" data-max="1" data-value="1">
                         </div>
                     </div>
                 </div>
